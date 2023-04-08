@@ -1,28 +1,16 @@
-import BookShelfChanger from './BookShelfChanger';
+import Book from './Book';
 
-export default function BookShelf({ title, books }) {
+export default function BookShelf({ title, books, handleChangeBook }) {
   return (
-    <div className="bookshelf">
+    <div key={title} className="bookshelf">
       <h2 className="bookshelf-title">{title}</h2>
       <div className="bookshelf-books">
         <ol className="books-grid">
-          {books.map((book) => {
-            return (
-              <li>
-                <div className="book">
-                  <div className="book-top">
-                    <div
-                      className="book-cover"
-                      style={book.style}
-                    ></div>
-                    <BookShelfChanger />
-                  </div>
-                  <div className="book-title">{book.title}</div>
-                  <div className="book-authors">{book.authors}</div>
-                </div>
-              </li>
-            );
-          })}
+          {books.map((book) => (
+            <li key={book.id}>
+              <Book book={book} handleChangeBook={handleChangeBook} />
+            </li>
+          ))}
         </ol>
       </div>
     </div>
