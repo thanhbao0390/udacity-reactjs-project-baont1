@@ -1,5 +1,8 @@
 import BookShelf from './component/BookShelf';
 import CATEGORY from './constant/Constant';
+import {
+  Link,
+} from "react-router-dom";
 
 export default function MyReadPage({books, handleChangeBook}) {
   return (
@@ -9,13 +12,13 @@ export default function MyReadPage({books, handleChangeBook}) {
       </div>
       <div className="list-books-content">
         <div>
-          <BookShelf title={CATEGORY.CURRENTLY_READING} books={books.filter(book => book.type === CATEGORY.CURRENTLY_READING)} handleChangeBook={handleChangeBook} />
-          <BookShelf title={CATEGORY.WANT_TO_READ} books={books.filter(book => book.type === CATEGORY.WANT_TO_READ)} handleChangeBook={handleChangeBook} />
-          <BookShelf title={CATEGORY.READ} books={books.filter(book => book.type === CATEGORY.READ)} handleChangeBook={handleChangeBook} />
+          <BookShelf title="Currently Reading" books={books.filter(book => book.shelf === CATEGORY.CURRENTLY_READING)} handleChangeBook={handleChangeBook} />
+          <BookShelf title="Want to Read" books={books.filter(book => book.shelf === CATEGORY.WANT_TO_READ)} handleChangeBook={handleChangeBook} />
+          <BookShelf title="Read" books={books.filter(book => book.shelf === CATEGORY.READ)} handleChangeBook={handleChangeBook} />
         </div>
       </div>
       <div className="open-search">
-        <a href={`/search`}>Add a book</a>
+        <Link to={`/search`}>Add a book</Link>
       </div>
     </div>
   );
