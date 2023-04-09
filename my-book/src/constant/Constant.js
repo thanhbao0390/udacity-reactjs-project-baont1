@@ -5,5 +5,4 @@ const CATEGORY = {
   NONE: "None",
 }
 
-
 export default CATEGORY;

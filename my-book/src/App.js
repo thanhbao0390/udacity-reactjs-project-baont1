@@ -3,9 +3,12 @@ import React, { useState } from "react";
 import MyReadPage from './MyReadPage';
 import SearchPage from './SearchPage';
 import CATEGORY from './constant/Constant';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 function App() {
-  const [showSearchPage, setShowSearchpage] = useState(false);
 
   const [books, setBook] = useState([
     {
@@ -108,13 +111,20 @@ function App() {
     setBook(newBooks);
   }
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <MyReadPage books={books} handleChangeBook={handleChangeBook} />,
+    },
+    {
+      path: "/search",
+      element: <SearchPage />,
+    },
+  ]);
+
   return (
     <div className="app">
-      {showSearchPage ? (
-        <SearchPage showSearchPage={showSearchPage} setShowSearchpage={setShowSearchpage} />
-      ) : (
-        <MyReadPage books={books} handleChangeBook={handleChangeBook} showSearchPage={showSearchPage} setShowSearchpage={setShowSearchpage} />
-      )}
+      <RouterProvider router={router} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import BookShelf from './component/BookShelf';
 import CATEGORY from './constant/Constant';
 
-export default function MyReadPage({books, handleChangeBook, showSearchPage, setShowSearchpage }) {
+export default function MyReadPage({books, handleChangeBook}) {
   return (
     <div className="list-books">
       <div className="list-books-title">
@@ -15,7 +15,7 @@ export default function MyReadPage({books, handleChangeBook, showSearchPage, set
         </div>
       </div>
       <div className="open-search">
-        <button onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</button>
+        <a href={`/search`}>Add a book</a>
       </div>
     </div>
   );
