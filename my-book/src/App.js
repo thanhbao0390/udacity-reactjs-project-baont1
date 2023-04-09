@@ -11,7 +11,6 @@ import * as apiBooks from './api/Books';
 function App() {
 
   const [books, setBooks] = useState([]);
-
   useEffect(() => {
     apiBooks.getAll()
       .then(books => {
@@ -21,7 +20,6 @@ function App() {
   }, [])
 
   const handleChangeBook = (selectedBook, shelf) => {
-
     apiBooks.update(selectedBook, shelf).then((res) => {
       selectedBook.shelf = shelf;
       const newBooks = books.filter((b) => {
@@ -38,7 +36,7 @@ function App() {
     },
     {
       path: "/search",
-      element: <SearchPage handleChangeBook={handleChangeBook} />,
+      element: <SearchPage books={books} handleChangeBook={handleChangeBook} />,
     },
   ]);
 

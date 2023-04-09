@@ -22,7 +22,7 @@ export default function Book({ book, handleChangeBook }) {
         </div>
       </div>
       <div className="book-title">{book.title}</div>
-      <div className="book-authors">{book.authors.join(', ')}</div>
+      <div className="book-authors">{book.authors}</div>
     </div>
   );
 }
