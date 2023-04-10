@@ -11,7 +11,7 @@ export default function Book({ book, handleChangeBook }) {
         }}></div>
         <div className="book-shelf-changer">
           <select onChange={e => { handleChangeBook(book, e.target.value); }} value={book.shelf? book.shelf: CATEGORY.NONE}>
-            <option value="none" disabled>
+            <option value="" disabled>
               Move to...
             </option>
             <option value={CATEGORY.CURRENTLY_READING}>Currently Reading</option>
