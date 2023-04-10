@@ -10,4 +10,4 @@ This is the project in the Udacity Nanodegree for React
 ## Then open the page http://localhost:3000/ in your local browser
 
 ## Demo page
-![MyReads](http://url/to/img.png)
+![MyReads](https://github.com/thanhbao0390/udacity-reactjs-project-baont1/blob/main/my-book/demo.png)
