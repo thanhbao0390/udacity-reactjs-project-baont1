@@ -12,9 +12,7 @@ export default function SearchPage({ books, handleChangeBook }) {
     e.persist();
     ! e.target.value ? setFbooks([]) :
     apiBooks.search(e.target.value).then((results) => {
-      console.log(results);
       if (results != null && results.length > 1 && e.target.value.length > 1) {
-        console.log('if');
         let foundBooks = results.map((foundBook) => {
           let bookExist = books.find(book => book.id === foundBook.id);
           if (bookExist) {
@@ -26,7 +24,6 @@ export default function SearchPage({ books, handleChangeBook }) {
         });
         return setFbooks(foundBooks);
       } else {
-        console.log('else');
         setFbooks([]);
       }
     });
